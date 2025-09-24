@@ -1,8 +1,8 @@
 # Dockerfile para backend Node.js
 FROM node:20-alpine
 
-ARG PORT=3000
-ARG API_MESSAGE="Backend con variables de entorno 🚀"
+ARG PORT
+ARG API_MESSAGE
 
 # Variables de entorno
 ENV PORT=$PORT
