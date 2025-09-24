@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: .
+      args:
+        PORT: ${PORT}
+        API_MESSAGE: ${API_MESSAGE}
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      - PORT=${PORT}
+      - API_MESSAGE=${API_MESSAGE}
+    volumes:
+      - .:/app
+    restart: unless-stopped
