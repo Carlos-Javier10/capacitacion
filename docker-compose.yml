@@ -1,0 +1,25 @@
+services:
+  frontend:
+    image: acrdlatest.azurecr.io/capacitacion/frontend:1.0-joan
+    build:
+      context: ./frontend
+      args:
+        - API_URL=http://localhost:4000
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    restart: unless-stopped
+  backend:
+    image: acrdlatest.azurecr.io/capacitacion/backend:1.0-joan
+    build:
+      context: ./backend
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - API_MESSAGE=Hola
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    
